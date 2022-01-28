@@ -43,6 +43,7 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
+    'storages',
 ]
 
 MIDDLEWARE = [
@@ -138,9 +139,15 @@ USE_TZ = True
 STATIC_URL = 'static/'
 # will use python manage.py collectstatic to put all static files in this folder "staticfiles"
 STATIC_ROOT = os.path.join(BASE_DIR, "staticfiles")
+
 # If you have extra static files for your app
 STATICFILES_DIRS = (os.path.join(BASE_DIR, "static"),)
 # NB: directories should not share names
+
+from .cdn.conf import * # noqa
+
+# URL: https://dj-ocean.fra1.digitaloceanspaces.com
+# https://dj-ocean.fra1.digitaloceanspaces.com
 
 # Default primary key field type
 # https://docs.djangoproject.com/en/4.0/ref/settings/#default-auto-field
